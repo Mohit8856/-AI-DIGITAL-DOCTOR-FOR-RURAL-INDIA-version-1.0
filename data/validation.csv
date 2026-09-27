@@ -1,0 +1,29 @@
+age,gender,symptoms,disease
+7,Female,high fever chills cough,Flu
+21,Male,fever body pain weakness,Flu
+41,Female,fever headache fatigue,Flu
+61,Male,fever sore throat chills,Flu
+13,Male,cough sneezing runny nose,Common Cold
+32,Female,nasal congestion cough,Common Cold
+52,Male,runny nose sneezing,Common Cold
+75,Female,blocked nose sore throat,Common Cold
+17,Male,headache nausea sensitivity light,Migraine
+31,Female,severe headache vomiting,Migraine
+47,Male,headache dizziness light sensitivity,Migraine
+66,Female,throbbing headache nausea,Migraine
+7,Male,vomiting stomach pain,Stomach Infection
+25,Female,abdominal pain diarrhea,Stomach Infection
+45,Male,stomach cramps nausea,Stomach Infection
+65,Female,diarrhea vomiting stomach pain,Stomach Infection
+24,Male,shortness breath chest pain,Respiratory Condition
+40,Female,chest tightness breathing difficulty,Respiratory Condition
+60,Male,breathing problem chest discomfort,Respiratory Condition
+80,Female,chest pressure shortness breath,Respiratory Condition
+15,Male,skin rash itching redness,Skin Condition
+35,Female,itchy red skin patches,Skin Condition
+55,Male,dry itchy skin rash,Skin Condition
+77,Female,skin redness itching,Skin Condition
+19,Female,thirst frequent urination fatigue,Diabetes Risk
+34,Male,excessive thirst weakness,Diabetes Risk
+59,Female,frequent urination tiredness,Diabetes Risk
+76,Male,increased thirst weakness,Diabetes Risk

@@ -1,0 +1,106 @@
+age,gender,symptoms,disease
+5,Male,fever cough sore throat,Flu
+12,Female,high fever body pain chills,Flu
+18,Male,fever headache weakness,Flu
+25,Female,fever chills muscle pain,Flu
+35,Male,high fever cough fatigue,Flu
+45,Female,fever sore throat tiredness,Flu
+55,Male,fever dry cough headache,Flu
+65,Female,fever body aches weakness,Flu
+8,Female,fever chills headache,Flu
+16,Male,high fever sore throat,Flu
+28,Female,fever cough body pain,Flu
+40,Male,fever fatigue chills,Flu
+52,Female,fever headache body aches,Flu
+60,Male,fever cough weakness,Flu
+72,Female,fever throat pain chills,Flu
+10,Male,cough runny nose sneezing,Common Cold
+15,Female,cold cough sneezing,Common Cold
+20,Male,runny nose sore throat,Common Cold
+27,Female,runny nose sneezing cough,Common Cold
+33,Male,mild cough runny nose,Common Cold
+42,Female,blocked nose sneezing cough,Common Cold
+50,Male,nasal congestion runny nose,Common Cold
+58,Female,sneezing mild sore throat,Common Cold
+6,Male,stuffy nose cough,Common Cold
+14,Female,runny nose throat discomfort,Common Cold
+24,Male,cold symptoms nasal congestion,Common Cold
+31,Female,sneezing watery eyes runny nose,Common Cold
+39,Male,mild cough blocked nose,Common Cold
+48,Female,runny nose nasal blockage,Common Cold
+67,Male,sneezing sore throat cough,Common Cold
+16,Female,headache nausea vomiting,Migraine
+22,Male,severe headache dizziness,Migraine
+25,Female,headache migraine sensitivity light,Migraine
+30,Male,throbbing headache nausea,Migraine
+35,Female,severe headache sensitivity light,Migraine
+40,Male,headache vomiting dizziness,Migraine
+45,Female,one sided headache,Migraine
+50,Male,headache sensitivity sound,Migraine
+55,Female,pulsing headache nausea,Migraine
+60,Male,severe head pain,Migraine
+18,Female,headache light sensitivity,Migraine
+28,Male,headache nausea dizziness,Migraine
+38,Female,strong headache vomiting,Migraine
+48,Male,headache worsens with light,Migraine
+58,Female,throbbing head pain,Migraine
+8,Male,stomach pain vomiting,Stomach Infection
+13,Female,abdominal pain nausea,Stomach Infection
+18,Male,diarrhea stomach pain,Stomach Infection
+23,Female,stomach cramps diarrhea,Stomach Infection
+28,Male,abdominal pain vomiting,Stomach Infection
+33,Female,nausea diarrhea stomach pain,Stomach Infection
+38,Male,vomiting stomach pain,Stomach Infection
+43,Female,loose stools abdominal pain,Stomach Infection
+48,Male,stomach ache nausea,Stomach Infection
+53,Female,diarrhea vomiting,Stomach Infection
+58,Male,abdominal cramps diarrhea,Stomach Infection
+63,Female,stomach discomfort vomiting,Stomach Infection
+68,Male,frequent diarrhea nausea,Stomach Infection
+73,Female,stomach cramps vomiting,Stomach Infection
+78,Male,loose motion stomach pain,Stomach Infection
+18,Male,chest pain breathing difficulty,Respiratory Condition
+22,Female,chest pressure shortness breath,Respiratory Condition
+27,Male,difficulty breathing chest pain,Respiratory Condition
+32,Female,shortness of breath,Respiratory Condition
+37,Male,chest tightness breathing difficulty,Respiratory Condition
+42,Female,breathing problem chest pain,Respiratory Condition
+47,Male,chest discomfort shortness breath,Respiratory Condition
+52,Female,difficulty taking deep breath,Respiratory Condition
+57,Male,chest pressure breathing problem,Respiratory Condition
+62,Female,trouble breathing,Respiratory Condition
+67,Male,shortness breath chest tightness,Respiratory Condition
+72,Female,breathing difficulty chest discomfort,Respiratory Condition
+77,Male,chest pain shortness breath,Respiratory Condition
+82,Female,heavy breathing chest discomfort,Respiratory Condition
+88,Male,difficulty breathing chest pressure,Respiratory Condition
+5,Female,skin rash itching,Skin Condition
+12,Male,red skin itching rash,Skin Condition
+18,Female,skin irritation itching,Skin Condition
+25,Male,itchy red skin,Skin Condition
+32,Female,skin redness itching,Skin Condition
+39,Male,red rash itching,Skin Condition
+46,Female,dry itchy skin,Skin Condition
+53,Male,skin rash redness,Skin Condition
+60,Female,itchy skin patches,Skin Condition
+67,Male,red skin patches,Skin Condition
+74,Female,skin irritation redness,Skin Condition
+81,Male,rash with itching,Skin Condition
+22,Female,itchy skin rash,Skin Condition
+42,Male,red itchy patches,Skin Condition
+58,Female,skin inflammation itching,Skin Condition
+18,Male,fatigue thirst frequent urination,Diabetes Risk
+23,Female,excessive thirst frequent urination,Diabetes Risk
+28,Male,weakness frequent urination,Diabetes Risk
+33,Female,increased thirst frequent urination,Diabetes Risk
+38,Male,constant thirst weakness,Diabetes Risk
+43,Female,frequent urination tiredness,Diabetes Risk
+48,Male,excessive thirst fatigue,Diabetes Risk
+53,Female,thirst and frequent urination,Diabetes Risk
+58,Male,increased urination weakness,Diabetes Risk
+63,Female,constant thirst tiredness,Diabetes Risk
+68,Male,frequent urination fatigue,Diabetes Risk
+73,Female,unusual thirst weakness,Diabetes Risk
+78,Male,tiredness increased thirst,Diabetes Risk
+65,Female,frequent urination thirst,Diabetes Risk
+55,Male,excessive thirst weakness,Diabetes Risk

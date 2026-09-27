@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        AI Digital Doctor | Rural Healthcare
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            🩺
+        </div>
+
+        <div>
+
+            <h2>
+                AI Digital Doctor
+            </h2>
+
+            <span>
+                Rural Healthcare Assistant
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="nav-status">
+
+        <span class="status-dot"></span>
+
+        System Online
+
+    </div>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="hero-badge">
+            🤖 AI-POWERED HEALTHCARE
+        </span>
+
+        <h1>
+            Your Health.<br>
+            <span>Our Intelligence.</span>
+        </h1>
+
+        <p>
+            Get AI-assisted health insights,
+            monitor vital signs, find nearby
+            hospitals and manage your healthcare
+            from one simple platform.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button
+                class="primary-btn"
+                onclick="scrollToSection('patient-section')"
+            >
+                Start Health Check
+            </button>
+
+            <button
+                class="secondary-btn"
+                onclick="scrollToSection('hospitals')"
+            >
+                Find Hospitals
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-card">
+
+        <div class="doctor-avatar">
+            🧑‍⚕️
+        </div>
+
+        <h3>
+            AI Health Assistant
+        </h3>
+
+        <p>
+            Ready to analyze your symptoms
+        </p>
+
+        <div class="ai-status">
+
+            <span></span>
+
+            AI System Ready
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<main class="dashboard">
+
+
+<!-- =================================================
+     PATIENT MANAGEMENT
+================================================= -->
+
+<section
+    id="patient-section"
+    class="card patient-card"
+>
+
+    <div class="section-header">
+
+        <span class="section-label">
+            PATIENT MANAGEMENT
+        </span>
+
+        <h2>
+            Patient Profile
+        </h2>
+
+        <p>
+            Create a new patient profile or
+            retrieve an existing patient's
+            medical history.
+        </p>
+
+    </div>
+
+
+    <div class="patient-actions">
+
+        <button
+            class="primary-btn"
+            onclick="showNewPatientForm()"
+        >
+            ➕ New Patient
+        </button>
+
+
+        <button
+            class="secondary-btn"
+            onclick="showExistingPatientForm()"
+        >
+            🔎 Existing Patient
+        </button>
+
+    </div>
+
+
+    <div
+        id="newPatientForm"
+        class="patient-form"
+        style="display:none;"
+    >
+
+        <h3>
+            Create New Patient
+        </h3>
+
+
+        <input
+            id="patientName"
+            type="text"
+            placeholder="Patient name"
+        >
+
+
+        <input
+            id="patientAge"
+            type="number"
+            min="1"
+            max="120"
+            placeholder="Age"
+        >
+
+
+        <select id="patientGender">
+
+            <option value="">
+                Select Gender
+            </option>
+
+            <option value="Male">
+                Male
+            </option>
+
+            <option value="Female">
+                Female
+            </option>
+
+            <option value="Other">
+                Other
+            </option>
+
+        </select>
+
+
+        <textarea
+            id="medicalHistory"
+            placeholder="Medical history (optional)"
+        ></textarea>
+
+
+        <button
+            class="primary-btn"
+            onclick="createPatient()"
+        >
+            Create Patient Profile
+        </button>
+
+    </div>
+
+
+    <div
+        id="existingPatientForm"
+        class="patient-form"
+        style="display:none;"
+    >
+
+        <h3>
+            Existing Patient
+        </h3>
+
+
+        <input
+            id="existingPatientId"
+            type="text"
+            placeholder="Enter Patient ID e.g. P10001"
+        >
+
+
+        <button
+            class="primary-btn"
+            onclick="loadPatient()"
+        >
+            Load Patient
+        </button>
+
+    </div>
+
+
+    <div
+        id="patientResult"
+        class="result-box"
+    ></div>
+
+</section>
+
+
+<!-- =================================================
+     AI ASSISTANT
+================================================= -->
+
+<section
+    class="section-header"
+    id="assistant"
+>
+
+    <span class="section-label">
+        AI ASSISTANT
+    </span>
+
+    <h2>
+        How are you feeling today?
+    </h2>
+
+    <p>
+        Describe your symptoms and get an
+        AI-assisted health assessment.
+    </p>
+
+</section>
+
+
+<section class="main-grid">
+
+
+    <!-- AI SYMPTOM ANALYZER -->
+
+    <div class="card symptom-card">
+
+        <div class="card-header">
+
+            <div class="icon-box blue">
+                🤖
+            </div>
+
+            <div>
+
+                <h3>
+                    AI Symptom Analyzer
+                </h3>
+
+                <p>
+                    Describe your symptoms below
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="activePatient"
+            class="active-patient"
+        >
+            No patient selected.
+        </div>
+
+
+        <textarea
+            id="symptoms"
+            placeholder="Example: I have fever, cough and sore throat..."
+        ></textarea>
+
+
+        <div class="input-actions">
+
+            <button
+                class="voice-btn"
+                onclick="startVoiceInput()"
+            >
+                🎤 Voice Input
+            </button>
+
+
+            <button
+                class="primary-btn analyze-btn"
+                onclick="predict()"
+            >
+                Analyze Symptoms →
+            </button>
+
+        </div>
+
+
+        <div
+            id="result"
+            class="result-box"
+        ></div>
+
+    </div>
+
+
+    <!-- VITALS -->
+
+    <div class="card vitals-card">
+
+        <div class="card-header">
+
+            <div class="icon-box red">
+                ❤️
+            </div>
+
+            <div>
+
+                <h3>
+                    Health Vitals
+                </h3>
+
+                <p>
+                    Connect your IoT devices
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="vitals-grid">
+
+
+            <div class="vital">
+
+                <div class="vital-icon">
+                    ❤️
+                </div>
+
+                <span>
+                    Heart Rate
+                </span>
+
+                <strong id="heartRate">
+                    --
+                </strong>
+
+                <small>
+                    BPM
+                </small>
+
+            </div>
+
+
+            <div class="vital">
+
+                <div class="vital-icon">
+                    🫁
+                </div>
+
+                <span>
+                    SpO₂
+                </span>
+
+                <strong id="spo2">
+                    --
+                </strong>
+
+                <small>
+                    %
+                </small>
+
+            </div>
+
+
+            <div class="vital">
+
+                <div class="vital-icon">
+                    🌡️
+                </div>
+
+                <span>
+                    Temperature
+                </span>
+
+                <strong id="temperature">
+                    --
+                </strong>
+
+                <small>
+                    °C
+                </small>
+
+            </div>
+
+
+            <div class="vital">
+
+                <div class="vital-icon">
+                    🩸
+                </div>
+
+                <span>
+                    Blood Pressure
+                </span>
+
+                <strong id="bloodPressure">
+                    --
+                </strong>
+
+                <small>
+                    mmHg
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="outline-btn"
+            onclick="connectDevice()"
+        >
+            🔵 Connect IoT Device
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     FEATURES
+================================================= -->
+
+<section class="feature-grid">
+
+
+    <!-- MEDICINE -->
+
+    <div class="card feature-card">
+
+        <div class="feature-icon purple">
+            💊
+        </div>
+
+        <h3>
+            Medicine Reminder
+        </h3>
+
+        <p>
+            Never forget your medicines.
+        </p>
+
+
+        <input
+            type="text"
+            id="medicine"
+            placeholder="Medicine name"
+        >
+
+
+        <input
+            type="time"
+            id="medicineTime"
+        >
+
+
+        <button
+            class="primary-btn full-btn"
+            onclick="addReminder()"
+        >
+            Add Reminder
+        </button>
+
+
+        <div id="reminders"></div>
+
+    </div>
+
+
+    <!-- SOS -->
+
+    <div class="card feature-card emergency-card">
+
+        <div class="feature-icon red">
+            🚨
+        </div>
+
+        <h3>
+            Emergency SOS
+        </h3>
+
+        <p>
+            Send an emergency alert when
+            immediate help is required.
+        </p>
+
+
+        <button
+            class="sos-btn"
+            onclick="sendSOS()"
+        >
+            🚨 SEND SOS
+        </button>
+
+
+        <div id="sosResult"></div>
+
+    </div>
+
+
+    <!-- HOSPITAL -->
+
+    <div class="card feature-card">
+
+        <div class="feature-icon green">
+            📍
+        </div>
+
+        <h3>
+            Nearby Hospitals
+        </h3>
+
+        <p>
+            Find real healthcare facilities
+            near your current location.
+        </p>
+
+
+        <button
+            class="primary-btn full-btn"
+            onclick="scrollToSection('hospitals')"
+        >
+            Find Hospitals →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     HOSPITALS
+================================================= -->
+
+<section
+    id="hospitals"
+    class="card hospitals-card"
+>
+
+    <div class="section-header hospital-heading">
+
+        <div>
+
+            <span class="section-label">
+                LOCATION SERVICES
+            </span>
+
+            <h2>
+                Nearby Hospitals
+            </h2>
+
+            <p>
+                Find real hospitals and
+                healthcare facilities near you.
+            </p>
+
+        </div>
+
+
+        <button
+            class="primary-btn"
+            onclick="findHospitals()"
+        >
+            📍 Find Near Me
+        </button>
+
+    </div>
+
+
+    <div
+        id="hospitalResult"
+        class="hospital-results"
+    >
+
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                🏥
+            </div>
+
+            <h3>
+                Find Healthcare Near You
+            </h3>
+
+            <p>
+                Allow location access to
+                discover nearby hospitals.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     FEEDBACK
+================================================= -->
+
+<section class="card feedback-card">
+
+    <div class="section-header">
+
+        <span class="section-label">
+            YOUR EXPERIENCE
+        </span>
+
+        <h2>
+            Help Us Improve
+        </h2>
+
+        <p>
+            Your feedback helps us build
+            better rural healthcare technology.
+        </p>
+
+    </div>
+
+
+    <div class="feedback-content">
+
+
+        <textarea
+            id="feedback"
+            placeholder="Tell us about your experience..."
+        ></textarea>
+
+
+        <div class="feedback-bottom">
+
+
+            <select id="rating">
+
+                <option value="5">
+                    ★★★★★ Excellent
+                </option>
+
+                <option value="4">
+                    ★★★★☆ Very Good
+                </option>
+
+                <option value="3">
+                    ★★★☆☆ Good
+                </option>
+
+                <option value="2">
+                    ★★☆☆☆ Fair
+                </option>
+
+                <option value="1">
+                    ★☆☆☆☆ Poor
+                </option>
+
+            </select>
+
+
+            <button
+                class="primary-btn"
+                onclick="submitFeedback()"
+            >
+                Submit Feedback
+            </button>
+
+        </div>
+
+
+        <div
+            id="feedbackResult"
+        ></div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+    <div class="footer-brand">
+        🩺 AI Digital Doctor
+    </div>
+
+    <p>
+        AI-powered healthcare assistance
+        for rural communities
+    </p>
+
+    <span>
+        Engineering Project • AI + IoT + Healthcare
+    </span>
+
+</footer>
+
+
+<div id="toast"></div>
+
+
+<script
+    src="{{ url_for('static', filename='js/main.js') }}"
+></script>
+
+
+</body>
+
+</html>
